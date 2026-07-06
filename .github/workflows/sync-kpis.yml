@@ -1,0 +1,33 @@
+name: Sync Jira KPIs
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # todo dia às 08:00 UTC
+  workflow_dispatch: # permite rodar manualmente pela aba Actions
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm install
+
+      - name: Roda a sincronização
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.JIRA_PROJECT_KEY }}
+        run: npm run sync
+
+      - name: Salva os arquivos gerados como artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: jira-kpi-results
+          path: kpi-results/
+          retention-days: 30

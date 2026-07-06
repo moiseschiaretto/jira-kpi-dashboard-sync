@@ -1,0 +1,18 @@
+{
+  "name": "jira-kpi-dashboard-sync",
+  "version": "1.0.0",
+  "description": "Extrai issues do Jira via API REST, calcula KPIs e exporta para CSV + relatório HTML (para alimentar dashboards no Looker Studio).",
+  "main": "sync.js",
+  "type": "commonjs",
+  "scripts": {
+    "sync": "node sync.js",
+    "test:connection": "node src/testConnection.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "csv-writer": "^1.6.0"
+  },
+  "author": "Moisés Chiaretto",
+  "license": "MIT"
+}

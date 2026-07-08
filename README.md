@@ -115,7 +115,7 @@ Cada issue tem uma ou mais tags no início do campo Resumo, entre colchetes:
 | `[Incidente]` | Problemas em produção/ambiente |
 | `[História]` | Itens de backlog de produto |
 | `[Testes][Cenários de Testes]` | Cenários de teste documentados |
-| `[Testes Exploratórios]` | Sessões de teste exploratório |
+| `[Testes][Testes Exploratórios]` | Sessões de teste exploratório |
 | `[Automação][Back-end]` | Cobertura de automação de API |
 | `[Automação][Front-end][E2E]` | Cobertura de automação E2E |
 | `[Automação][Performance]` | Testes de carga/performance (k6) |
